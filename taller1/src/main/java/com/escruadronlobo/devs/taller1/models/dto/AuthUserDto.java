@@ -10,11 +10,11 @@ import lombok.Data;
 @Data
 @AllArgsConstructor
 public class AuthUserDto {
-    @NotEmpty(message = "Usercode vacio")
-    @Pattern(regexp = "^[A-Z]{2}\\d{6}$", flags = Pattern.Flag.MULTILINE)
+    @NotEmpty(message = "Debe poner su código")
+    @Pattern(regexp = "^[A-Z]{2}\\d{6}$", flags = Pattern.Flag.MULTILINE, message="El usuario no cumple el formato necesario")
     private String userCode;
 
-    @NotEmpty(message = "Password vacia")
+    @NotEmpty(message = "La contraseña no puede ir vacia")
     @Size(min= 8, max=10, message = "La contraseña debe tener al menos 8 caracteres")
     private String password;
 
