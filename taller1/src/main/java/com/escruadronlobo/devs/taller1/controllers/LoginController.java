@@ -34,10 +34,10 @@ public class LoginController {
 	private static User loggedUser;
 	
 	static{
-	    users.add(new User("AD123400", "Victor", "Cortez", "23/01/2023", true, "admin", "123456789"));
-	    users.add(new User("AF123401", "Oscar", "Juarez", "23/03/2023", true, "user", "1234"));
-	    users.add(new User("AJ123400", "Marcela", "Melendez", "23/03/2023", false, "user", "1234"));
-	    users.add(new User("AL123400", "Diana", "Valenzuela", "23/03/2023", true, "admin", "1234"));
+	    users.add(new User("AD123400", "Victor", "Cortez", "30/01/2023", true, "Admin", "123456789"));
+	    users.add(new User("AF123401", "Oscar", "Juarez", "07/03/2023", true, "User", "ASDFERGGG"));
+	    users.add(new User("AJ123400", "Marcela", "Melendez", "01/03/2023", true, "User", "ESCUADRONLOBO"));
+	    users.add(new User("AL123400", "Diana", "Valenzuela", "05/01/2023", false, "Admin", "ItShowTime"));
 	}
 
 	@GetMapping("/")
@@ -53,6 +53,7 @@ public class LoginController {
 		model.addAttribute("time", Calendar.getInstance().getTime());
 		
 		if(loggedUser.getRol() == "Admin") {
+			model.addAttribute("show", true);
 			model.addAttribute("userList", users);
 		}
 		
@@ -73,13 +74,10 @@ public class LoginController {
 	@GetMapping("/logout")
 	public String logout() {
 	
-		if(loggedUser != null) {			
-			loggedUser = null;
-		}
+		loggedUser = null;
 		return "redirect:/app/login";
 	}
 	
-	User userToLog;
 	@PostMapping("/login/auth")
 	public String auth(@ModelAttribute @Valid AuthUserDto userToLoginData, 
 						BindingResult result,
@@ -106,6 +104,7 @@ public class LoginController {
 			return "login";
 		}
 
+		User userToLog = null;
 		
 		for (User user: users) {
 

@@ -1,40 +1,62 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Error</title>
-    <style>
-        
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100%;
-            background-color: #3399CC; 
-        }
-        
-        h1 {
-            text-align: center;
-            font-size: 36px;
-            color: #fff;
-            margin-bottom: 10px;
-        }
-        p {
-            text-align: center;
-            font-size: 24px;
-            color: #fff; 
-            margin: 0;
-        }
-    </style>
+  <title>Error</title>
+  <style>
+    /* Estilos para centrar el contenido */
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    .container {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      background-color: #3399CC; /* Color de fondo celeste-azul */
+    }
+    /* Estilos para el mensaje de error */
+    h1 {
+      text-align: center;
+      font-size: 36px;
+      color: #fff; /* Color de texto blanco */
+      margin-bottom: 10px;
+    }
+    p {
+      text-align: center;
+      font-size: 24px;
+      color: #fff; /* Color de texto blanco */
+      margin: 0;
+    }
+
+    .button{
+      background-color: #CC3333;
+      color: #FFFFFF;
+      margin: 75px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 15px 60px;
+      font-size: 20px;
+    }
+
+    .button:hover{
+      background-color: #FFFFFF;
+      color: #CC3333;
+    }
+
+  </style>
 </head>
 <body>
 <div class="container">
-    <h1>Error 404 No encontrado</h1>
-    <p>{{error}}</p>
+  <h1>Error 404: No encontrado</h1>
+  <p>{{error}}</p>
+
+  <form method="GET" action="/app/login">
+    <input class="button" type="submit" value="Volver">
+  </form>
 </div>
+
 </body>
 </html>

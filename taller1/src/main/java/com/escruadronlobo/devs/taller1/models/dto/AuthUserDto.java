@@ -15,7 +15,7 @@ public class AuthUserDto {
     private String userCode;
 
     @NotEmpty(message = "La contraseña no puede ir vacia")
-    @Size(min= 8, max=10, message = "La contraseña debe tener al menos 8 caracteres")
+    @Size(min= 8, message = "La contraseña debe tener al menos 8 caracteres")
     private String password;
 
 }

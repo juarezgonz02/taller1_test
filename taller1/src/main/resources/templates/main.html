@@ -1,1 +1,116 @@
-LOGGED
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Página principal</title>
+  <style>
+    body {
+      background-color: #3399CC;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+    }
+
+    .card {
+      margin-top: 50px;
+      background-color: #FFFFFF;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+      max-width: 500px;
+      width: 60%;
+    }
+
+    table {
+      border-collapse: collapse;
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 18px;
+      margin-top: 0;
+    }
+
+    .button{
+      background-color: #CC3333;
+      color: #FFFFFF;
+      margin: 75px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 15px 60px;
+      font-size: 20px;
+    }
+
+    .button:hover{
+      background-color: #FFFFFF;
+      color: #CC3333;
+    }
+
+  </style>
+</head>
+<body>
+<div class="card">
+  <h1>Bienvenido/a, {{name}}!</h1>
+  <p>Hoy es {{time}}.</p>
+</div>
+{{#show}}
+<div class="card">
+  <table>
+    <thead>
+    <tr>
+      <th>Código</th>
+      <th>Empleado</th>
+      <th>Estado</th>
+      <th>Fecha de contratación</th>
+      <th>Rol</th>
+    </tr>
+    </thead>
+    <tbody>
+	{{#userList}}
+    <tr>
+      <td>{{code}}</td>
+      <td>{{name}} {{lastName}}</td>
+      <td>{{#isActive}}
+		  Activado
+		{{/isActive}}
+		{{^isActive}}
+		  Desactivado
+		{{/isActive}}</td>
+      <td>{{hiringDate}}</td>
+      <td>{{rol}}</td>
+    </tr>
+	{{/userList}}
+
+    </tbody>
+  </table>
+  {{/show}}
+
+</div>	
+  
+  <form method="GET" action="/app/logout">
+    <input class="button" type="submit" value="Salir">
+  </form>
+
+</body>
+</html>
